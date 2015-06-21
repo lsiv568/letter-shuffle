@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div>
+    <acme-navbar />
+  </div>
+
+  <div class="jumbotron text-center">
+    <p class="lead">
+      Drag the letters into their correct position to win the game!
+    </p>
+    <ul class="draglist">
+      <li ng-repeat="letter in main.shuffled" ng-drop="true"
+          ng-drop-success="main.dropComplete($index, $data, $event)">
+        <div ng-drag="true" ng-drag-data="letter" class="btn btn-lg">
+          {{letter}}
+        </div>
+        <br ng-if="$index === 2 || $index === 5 || $index === 8">
+      </li>
+    </ul>
+  </div>
+
+  <div ng-if="main.won" class="text-center">
+    <button class="btn btn-lg btn-success" ng-click="main.replay()">Play Again</button>
+  </div>
+
+</div>
