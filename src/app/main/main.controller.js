@@ -23,7 +23,10 @@
 
       function checkForWinner() {
         if (_.isEqual(vm.shuffled, LETTERS)) {
-          alert('WINNER!!!!!!!');
+          // throw alert on next tick so drop happens (letters appear on correct place) before alter modal
+          setTimeout(function() {
+            alert('WINNER!!!!!!!');
+          }, 0);
           vm.won = true;
         }
       }
